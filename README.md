@@ -1,10 +1,10 @@
 ## 컴파일
 
-`javac -d .\class\ .\src\academy\pocu\HelloPocu.java`
+`javac -d .\class\ .\src\academy\pocu\*.java`
 
 ## 실행 
 
-`java -classpath .\class\ academy.pocu.HelloPocu`
+`java -classpath .\class\ academy.pocu.Main`
 
 `java -jar .\lib\hellopocu.jar`
 
