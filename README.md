@@ -1,6 +1,6 @@
 ## 컴파일
 
-`javac -d .\class\ .\src\academy\pocu\*.java`
+`javac -d .\class\ .\academy\pocu\*.java`
 
 ## 실행 
 
@@ -10,4 +10,4 @@
 
 ## 라이브러리
 
-`jar -cfm .\lib\hellopocu.jar .\src\Manifest.txt -C .\class\ .`
+`jar -cfm .\lib\hellopocu.jar .\Manifest.txt -C .\class\ .`

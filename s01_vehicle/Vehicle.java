@@ -43,7 +43,7 @@ public class Vehicle {
     public void drive(int distance) {
         System.out.printf("Driving %dkm%n", distance);
 
-        double gasMileage = 100_000;
+        double gasMileage = 100_000L;
 
         switch (this.type) {
             case MOTORCYCLE -> gasMileage = 0.05;
