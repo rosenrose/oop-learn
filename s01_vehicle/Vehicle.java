@@ -3,10 +3,10 @@ package s01_vehicle;
 import java.util.ArrayList;
 
 public class Vehicle {
-    public VehicleType type;
-    public ArrayList<Passenger> passengers;
-    public double fuelAmount;
-    public int mileage;
+    private final VehicleType type;
+    private final ArrayList<Passenger> passengers;
+    private double fuelAmount;
+    private int mileage;
 
     public Vehicle(VehicleType type) {
         this(type, new ArrayList<>(), 0.0);
@@ -29,7 +29,7 @@ public class Vehicle {
 
     public void removePassenger(String passengerName) {
         for (Passenger p : this.passengers) {
-            if (p.name.equals(passengerName)) {
+            if (p.getName().equals(passengerName)) {
                 this.passengers.remove(p);
                 return;
             }
@@ -43,7 +43,7 @@ public class Vehicle {
     public void drive(int distance) {
         System.out.printf("Driving %dkm%n", distance);
 
-        double gasMileage = 100_000L;
+        Double gasMileage = null;
 
         switch (this.type) {
             case MOTORCYCLE -> gasMileage = 0.05;

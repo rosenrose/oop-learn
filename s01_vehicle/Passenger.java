@@ -1,10 +1,14 @@
 package s01_vehicle;
 
 public class Passenger {
-    public String name;
+    private final String name;
 
     public Passenger(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void sayName() {
