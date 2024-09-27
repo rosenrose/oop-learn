@@ -3,15 +3,25 @@ package s03_logger;
 public class Program {
     public static void main(String[] args) {
         try {
-            Logger.loadConfig();
+            StaticLogger.loadConfig();
 
-            Logger.logDebug("Log debug");
-            Logger.logInfo("Log info: %d", 123);
-            Logger.logWarning("Log Warn: %s", "hello");
-            Logger.logError("Log Err: %s-%s", "foo", "bar");
-            Logger.logCritical("CRITICAL!!");
+            StaticLogger.logDebug("Log debug");
+            StaticLogger.logInfo("Log info: %d", 123);
+            StaticLogger.logWarning("Log Warn: %s", "hello");
+            StaticLogger.logError("Log Err: %s-%s", "foo", "bar");
+            StaticLogger.logCritical("CRITICAL!!");
 
-            Logger.close();
+            StaticLogger.close();
+
+            SingletonLogger logger = SingletonLogger.getInstance();
+
+            logger.logDebug("Debug");
+            logger.logInfo("Info: %d", 9987);
+            logger.logWarning("Warn: %s", "world");
+            logger.logError("Err: %s-%s", "baz", "bas");
+            logger.logCritical("critical");
+
+            logger.deleteInstance();
         } catch (Exception _) {
         }
     }
