@@ -1,35 +1,28 @@
 package s02_spray_pot;
 
 public class WaterSpray {
-    private final int capacityInMl;
-    private int waterInMl = 0;
+    private SprayHead head;
+    private SprayBody body;
 
-    public WaterSpray(int capacityInMl) {
-        this.capacityInMl = capacityInMl;
+    public WaterSpray(SprayHead head, SprayBody body) {
+        this.head = head;
+        this.body = body;
     }
 
-    public int getCapacityInMl() {
-        return this.capacityInMl;
+    public SprayHead getHead() {
+        return this.head;
     }
 
-    public int getWaterInMl() {
-        return waterInMl;
+    public void setHead(SprayHead head) {
+        this.head = head;
     }
 
-    public void setWaterInMl(int waterInMl) {
-        this.waterInMl = Math.min(waterInMl, this.capacityInMl);
+    public SprayBody getBody() {
+        return this.body;
     }
 
-    public void addWater(int waterInMl) {
-        setWaterInMl(this.waterInMl + waterInMl);
-    }
-
-    public void fillUp() {
-        this.waterInMl = this.capacityInMl;
-    }
-
-    public void spray() {
-        this.waterInMl -= Math.min(5, this.waterInMl);
+    public void setBody(SprayBody body) {
+        this.body = body;
     }
 
     /* 1번 방법: 분무기를 화분에 대고 뿌린다
