@@ -43,16 +43,11 @@ public class Vehicle {
     public void drive(int distance) {
         System.out.printf("Driving %dkm%n", distance);
 
-        Double gasMileage = null;
-
-        switch (this.type) {
-            case MOTORCYCLE -> gasMileage = 0.05;
-            case SEDAN -> gasMileage = 0.07;
-            case MINIVAN -> gasMileage = 0.1;
-            default -> {
-                assert (false) : "Invalid Type: " + this.type;
-            }
-        }
+        double gasMileage = switch (this.type) {
+            case MOTORCYCLE -> 0.05;
+            case SEDAN -> 0.07;
+            case MINIVAN -> 0.1;
+        };
 
         double requiredFuel = (gasMileage * distance) + (this.passengers.size() * 0.01);
 

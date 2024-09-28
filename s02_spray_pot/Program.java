@@ -2,11 +2,9 @@ package s02_spray_pot;
 
 public class Program {
     public static void main(String[] args) {
-        SprayHead head = new SprayHead(5);
-        SprayBody body = new SprayBody(100);
-        body.fillUp();
+        WaterSpray spray = new WaterSpray(SprayAmount.MEDIUM, BottleSize.LARGE);
+        spray.fillUp();
 
-        WaterSpray spray = new WaterSpray(head, body);
         FlowerPot pot = new FlowerPot(10);
 
         for (int i = 0; i < 2; i++) {
@@ -15,6 +13,6 @@ public class Program {
 
         pot.liveOneDay();
         System.out.printf("Is alive?: %s%n", pot.isAlive());
-        System.out.printf("Water amount: %d%n", body.getWaterInMl());
+        System.out.printf("Water amount: %d%n", spray.getWaterInMl());
     }
 }
