@@ -8,14 +8,11 @@ public class Program {
         FlowerPot pot = new FlowerPot(10);
 
         for (int i = 0; i < 2; i++) {
-            int beforeAmt = spray.getWaterInMl();
-            spray.spray();
-            int sprayAmt = beforeAmt - spray.getWaterInMl();
-
-            pot.addWater(sprayAmt);
+            pot.addWater(spray);
         }
 
         pot.liveOneDay();
         System.out.printf("Is alive?: %s%n", pot.isAlive());
+        System.out.printf("Water amount: %d%n", spray.getWaterInMl());
     }
 }
