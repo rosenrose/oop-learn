@@ -5,14 +5,22 @@ public class AnalogClock extends BaseClock {
     static final int ANGLE_PER_MIN_IN_DEGREE = 360 / 60;
     static final int ANGLE_PER_SEC_IN_DEGREE = 360 / 60;
 
+    public AnalogClock() {
+        this(0);
+    }
+
+    public AnalogClock(int timeInSecond) {
+        super(timeInSecond);
+    }
+
     public void addSeconds(short secondAmt) {
-        int seconds = (this.timeInSecond + secondAmt) % HALF_DAY_IN_SECONDS;
+        int seconds = (super.timeInSecond + secondAmt) % DAY_IN_SECOND;
 
         if (seconds < 0) {
-            seconds += HALF_DAY_IN_SECONDS;
+            seconds += DAY_IN_SECOND;
         }
 
-        this.timeInSecond = seconds;
+        super.timeInSecond = seconds;
     }
 
     public short getHourAngleInDegree() {
@@ -25,5 +33,10 @@ public class AnalogClock extends BaseClock {
 
     public short getSecondAngleInDegree() {
         return (short) (getSecond() * ANGLE_PER_SEC_IN_DEGREE);
+    }
+
+
+    public String toString() {
+        return String.format("%02d:%02d:%02d", getHour(), getMinute(), getSecond());
     }
 }

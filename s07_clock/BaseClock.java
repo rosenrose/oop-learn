@@ -1,11 +1,19 @@
 package s07_clock;
 
 public class BaseClock {
-    protected int timeInSecond = 0;
-    protected static final int HALF_DAY_IN_SECONDS = 60 * 60 * 12;
+    protected int timeInSecond;
+    protected static final int DAY_IN_SECOND = 60 * 60 * 24;
+
+    public BaseClock() {
+        this(0);
+    }
+
+    public BaseClock(int timeInSecond) {
+        this.timeInSecond = timeInSecond;
+    }
 
     public byte getHour() {
-        int hour = this.timeInSecond / 60 / 60;
+        int hour = this.timeInSecond / 60 / 60 % 12;
 
         return (byte) (hour == 0 ? 12 : hour);
     }
@@ -19,14 +27,11 @@ public class BaseClock {
     }
 
     public void tick() {
-        this.timeInSecond = (this.timeInSecond + 1) % HALF_DAY_IN_SECONDS;
+        this.timeInSecond = (this.timeInSecond + 1) % DAY_IN_SECOND;
     }
 
     public void mount() {
         System.out.println("Mounted on the wall");
     }
 
-    public String toString() {
-        return String.format("%02d:%02d:%02d", getHour(), getMinute(), getSecond());
-    }
 }
