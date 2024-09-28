@@ -1,4 +1,4 @@
-package s05_vector;
+package s06_vector;
 
 import java.util.List;
 

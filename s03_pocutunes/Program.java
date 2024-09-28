@@ -1,4 +1,4 @@
-package s02_pocutunes;
+package s03_pocutunes;
 
 public class Program {
     public static void main(String[] args) {

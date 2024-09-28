@@ -1,4 +1,4 @@
-package s02_pocutunes;
+package s03_pocutunes;
 
 public class Song {
     private final String name;

@@ -1,4 +1,4 @@
-package s03_logger;
+package s04_logger;
 
 public class Program {
     public static void main(String[] args) {

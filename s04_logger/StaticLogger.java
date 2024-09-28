@@ -1,4 +1,4 @@
-package s03_logger;
+package s04_logger;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -8,35 +8,23 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.List;
 
-public class SingletonLogger {
-    private static final String CONFIG_FILENAME = "singleton.config";
-    private static SingletonLogger instance = null;
+public class StaticLogger {
+    private static final String CONFIG_FILENAME = "static.config";
 
-    private final LogLevel logLevel;
-    private final BufferedWriter bufferOut;
+    private static LogLevel logLevel = LogLevel.WARNING;
+    private static boolean isConfigLoaded = false;
+    private static BufferedWriter bufferOut = null;
 
-    private SingletonLogger(LogLevel logLevel, String outputPath) {
-        this.logLevel = logLevel;
-
-        try {
-            this.bufferOut = new BufferedWriter(new FileWriter(outputPath));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    private StaticLogger() {
     }
 
-    public static SingletonLogger getInstance() {
-        if (instance != null) {
-            return instance;
-        }
-
+    public static void loadConfig() {
         try {
             String classPath = getClassPath();
             Path loggerConfigPath = Paths.get(classPath, CONFIG_FILENAME);
-            File configFile = new File(loggerConfigPath.toString());
 
-            LogLevel logLevel = LogLevel.WARNING;
-            String outputFilename = "log_singleton.txt";
+            File configFile = new File(loggerConfigPath.toString());
+            String outputFilename = "log.txt";
 
             if (!configFile.exists()) {
                 throw new FileNotFoundException();
@@ -60,55 +48,63 @@ public class SingletonLogger {
             }
 
             String outputPath = Paths.get(classPath, outputFilename).toString();
-            instance = new SingletonLogger(logLevel, outputPath);
 
-            return instance;
+            bufferOut = new BufferedWriter(new FileWriter(outputPath));
+            isConfigLoaded = true;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void deleteInstance() {
+    public static void close() {
+        if (bufferOut == null) {
+            return;
+        }
+
         try {
-            this.bufferOut.close();
+            bufferOut.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        instance = null;
     }
 
-    public void logDebug(String msg, Object... args) {
+    public static void logDebug(String msg, Object... args) {
+        assert (isConfigLoaded) : "Config not loaded";
         writeToFile(LogLevel.DEBUG, msg, args);
     }
 
-    public void logInfo(String msg, Object... args) {
+    public static void logInfo(String msg, Object... args) {
+        assert (isConfigLoaded) : "Config not loaded";
         writeToFile(LogLevel.INFO, msg, args);
     }
 
-    public void logWarning(String msg, Object... args) {
+    public static void logWarning(String msg, Object... args) {
+        assert (isConfigLoaded) : "Config not loaded";
         writeToFile(LogLevel.WARNING, msg, args);
     }
 
-    public void logError(String msg, Object... args) {
+    public static void logError(String msg, Object... args) {
+        assert (isConfigLoaded) : "Config not loaded";
         writeToFile(LogLevel.ERROR, msg, args);
     }
 
-    public void logCritical(String msg, Object... args) {
+    public static void logCritical(String msg, Object... args) {
+        assert (isConfigLoaded) : "Config not loaded";
         writeToFile(LogLevel.CRITICAL, msg, args);
     }
 
-    private void writeToFile(LogLevel logLevel, String msg, Object... args) {
-        if (logLevel.getLogLevel() < this.logLevel.getLogLevel()) {
+    private static void writeToFile(LogLevel logLevel, String msg, Object... args) {
+        if (!isConfigLoaded ||
+                (logLevel.getLogLevel() < StaticLogger.logLevel.getLogLevel())) {
             return;
         }
 
         try {
             String log = String.format("[%s] %s: %s", Instant.now(), logLevel, String.format(msg, args));
 
-            this.bufferOut.write(log);
-            this.bufferOut.newLine();
-            this.bufferOut.flush();
+            bufferOut.write(log);
+            bufferOut.newLine();
+            bufferOut.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

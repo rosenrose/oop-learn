@@ -1,4 +1,4 @@
-package s04_base_entity;
+package s05_base_entity;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

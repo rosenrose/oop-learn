@@ -1,4 +1,4 @@
-package s03_logger;
+package s04_logger;
 
 public enum LogLevel {
     DEBUG(0),
