@@ -10,7 +10,13 @@ public class Clock {
     }
 
     public void setHour(byte hour) {
-        this.hour = hour;
+        hour = (byte) ((hour - 1) % 12);
+
+        if (hour < 0) {
+            hour += 12;
+        }
+
+        this.hour = (byte) (hour + 1);
     }
 
     public byte getMinute() {
@@ -18,6 +24,12 @@ public class Clock {
     }
 
     public void setMinute(byte minute) {
+        minute %= 60;
+
+        if (minute < 0) {
+            minute += 60;
+        }
+
         this.minute = minute;
     }
 
@@ -26,6 +38,12 @@ public class Clock {
     }
 
     public void setSecond(byte second) {
+        second %= 60;
+
+        if (second < 0) {
+            second += 60;
+        }
+
         this.second = second;
     }
 
@@ -45,5 +63,9 @@ public class Clock {
 
     public short getSecondAngle() {
         return (short) (this.second * 6);
+    }
+
+    public String toString() {
+        return String.format("%02d:%02d:%02d", this.hour, this.minute, this.second);
     }
 }
