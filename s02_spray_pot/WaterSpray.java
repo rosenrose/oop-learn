@@ -18,4 +18,8 @@ public class WaterSpray {
     public void addWater(int waterAmtInMl) {
         this.waterAmtInMl += waterAmtInMl;
     }
+
+    public void spray() {
+        this.waterAmtInMl -= Math.min(5, this.waterAmtInMl);
+    }
 }
