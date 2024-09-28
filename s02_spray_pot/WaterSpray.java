@@ -2,34 +2,33 @@ package s02_spray_pot;
 
 public class WaterSpray {
     private final int capacity;
-    private int waterAmtInMl;
+    private int waterInMl = 0;
 
     public WaterSpray(int capacity) {
         this.capacity = capacity;
-        this.waterAmtInMl = capacity;
     }
 
     public int getCapacity() {
         return this.capacity;
     }
 
-    public int getWaterAmtInMl() {
-        return waterAmtInMl;
+    public int getWaterInMl() {
+        return waterInMl;
     }
 
-    public void setWaterAmtInMl(int waterAmtInMl) {
-        this.waterAmtInMl = Math.min(waterAmtInMl, this.capacity);
+    public void setWaterInMl(int waterInMl) {
+        this.waterInMl = Math.min(waterInMl, this.capacity);
     }
 
-    public void addWater(int waterAmtInMl) {
-        setWaterAmtInMl(this.waterAmtInMl + waterAmtInMl);
+    public void addWater(int waterInMl) {
+        setWaterInMl(this.waterInMl + waterInMl);
     }
 
     public void fillUp() {
-        this.waterAmtInMl = this.capacity;
+        this.waterInMl = this.capacity;
     }
 
     public void spray() {
-        this.waterAmtInMl -= Math.min(5, this.waterAmtInMl);
+        this.waterInMl -= Math.min(5, this.waterInMl);
     }
 }
