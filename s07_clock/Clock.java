@@ -1,85 +1,46 @@
 package s07_clock;
 
 public class Clock {
-    private byte hour = 12;
-    private byte minute = 0;
-    private byte second = 0;
+    private int timeInSecond = 0;
+    static final int HALF_DAY_IN_SECONDS = 60 * 60 * 12;
 
     public byte getHour() {
-        return this.hour;
-    }
+        int hour = this.timeInSecond / 60 / 60;
 
-    public void setHour(byte hour) {
-        hour = (byte) ((hour - 1) % 12);
-
-        if (hour < 0) {
-            hour += 12;
-        }
-
-        this.hour = (byte) (hour + 1);
+        return (byte) (hour == 0 ? 12 : hour);
     }
 
     public byte getMinute() {
-        return this.minute;
-    }
-
-    public void setMinute(byte minute) {
-        int carry = 0;
-
-        while (minute < 0) {
-            minute += 60;
-            carry--;
-        }
-
-        carry += minute / 60;
-
-        if (carry != 0) {
-            setHour((byte) (this.hour + carry));
-        }
-
-        this.minute = (byte) (minute % 60);
+        return (byte) (this.timeInSecond / 60 % 60);
     }
 
     public byte getSecond() {
-        return this.second;
+        return (byte) (this.timeInSecond % 60);
     }
 
-    public void setSecond(byte second) {
-        int carry = 0;
+    public void addSeconds(short secondAmt) {
+        int seconds = (this.timeInSecond + secondAmt) % HALF_DAY_IN_SECONDS;
 
-        while (second < 0) {
-            second += 60;
-            carry--;
+        if (seconds < 0) {
+            seconds += HALF_DAY_IN_SECONDS;
         }
 
-        carry += second / 60;
-
-        if (carry != 0) {
-            setMinute((byte) (this.minute + carry));
-        }
-
-        this.second = (byte) (second % 60);
-    }
-
-    public void setTime(byte hour, byte minute, byte second) {
-        setHour(hour);
-        setMinute(minute);
-        setSecond(second);
+        this.timeInSecond = seconds;
     }
 
     public short getHourAngle() {
-        return (short) ((this.hour * 30) + (this.minute / 2));
+        return (short) ((getHour() * 30) + (getMinute() / 2));
     }
 
     public short getMinuteAngle() {
-        return (short) ((this.minute * 6) + (this.second / 10));
+        return (short) ((getMinute() * 6) + (getSecond() / 10));
     }
 
     public short getSecondAngle() {
-        return (short) (this.second * 6);
+        return (short) (getSecond() * 6);
     }
 
     public String toString() {
-        return String.format("%02d:%02d:%02d", this.hour, this.minute, this.second);
+        return String.format("%02d:%02d:%02d", getHour(), getMinute(), getSecond());
     }
 }

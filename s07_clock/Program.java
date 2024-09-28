@@ -4,10 +4,13 @@ public class Program {
     public static void main(String[] args) {
         Clock clock = new Clock();
 
-        clock.setTime((byte) -15, (byte) 104, (byte) -88);
+        clock.addSeconds((short) 10800);
         System.out.println(clock);
 
-        clock.setTime((byte) 4, (byte) 10, (byte) 34);
+        clock.addSeconds((short) -10);
+        System.out.println(clock);
+
+        clock.addSeconds((short) 100);
         System.out.println(clock);
     }
 }
