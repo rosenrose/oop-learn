@@ -50,9 +50,9 @@ public class Program {
 
         printBaseEntity(student);
 
-        System.out.printf("name: %s%n", student.getName());
-        System.out.printf("email: %s%n", student.getEmail());
-        System.out.printf("nickname: %s%n%n", student.getNickname());
+        System.out.printf("  name: %s%n", student.getName());
+        System.out.printf("  email: %s%n", student.getEmail());
+        System.out.printf("  nickname: %s%n%n", student.getNickname());
     }
 
     private static void printCourse(Course course) {
@@ -60,21 +60,21 @@ public class Program {
 
         printBaseEntity(course);
 
-        System.out.printf("course code: %s%n", course.getCourseCode());
-        System.out.printf("title: %s%n", course.getTitle());
-        System.out.println("course terms:");
+        System.out.printf("  course code: %s%n", course.getCourseCode());
+        System.out.printf("  title: %s%n", course.getTitle());
+        System.out.println("  course terms:");
 
         for (CourseTerm courseTerm : course.getCourseTerms()) {
-            System.out.printf("term: %s%n", courseTerm.getTerm());
-            System.out.printf("student counts: %s%n", courseTerm.getStudentCnt());
+            System.out.printf("    term: %s%n", courseTerm.getTerm());
+            System.out.printf("    student counts: %s%n", courseTerm.getStudentCnt());
         }
 
         System.out.println();
     }
 
     private static void printBaseEntity(BaseEntity entity) {
-        System.out.printf("id: %s%n", entity.getId());
-        System.out.printf("created: %s%n", entity.getCreatedDateTime());
-        System.out.printf("modified: %s%n", entity.getModifiedDateTime());
+        System.out.printf("  id: %s%n", entity.getId());
+        System.out.printf("  created: %s%n", entity.getCreatedDateTime());
+        System.out.printf("  modified: %s%n", entity.getModifiedDateTime());
     }
 }
