@@ -24,13 +24,20 @@ public class Clock {
     }
 
     public void setMinute(byte minute) {
-        minute %= 60;
+        int carry = 0;
 
-        if (minute < 0) {
+        while (minute < 0) {
             minute += 60;
+            carry--;
         }
 
-        this.minute = minute;
+        carry += minute / 60;
+
+        if (carry != 0) {
+            setHour((byte) (this.hour + carry));
+        }
+
+        this.minute = (byte) (minute % 60);
     }
 
     public byte getSecond() {
@@ -38,13 +45,20 @@ public class Clock {
     }
 
     public void setSecond(byte second) {
-        second %= 60;
+        int carry = 0;
 
-        if (second < 0) {
+        while (second < 0) {
             second += 60;
+            carry--;
         }
 
-        this.second = second;
+        carry += second / 60;
+
+        if (carry != 0) {
+            setMinute((byte) (this.minute + carry));
+        }
+
+        this.second = (byte) (second % 60);
     }
 
     public void setTime(byte hour, byte minute, byte second) {
