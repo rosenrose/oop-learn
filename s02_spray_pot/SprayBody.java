@@ -17,10 +17,7 @@ public class SprayBody {
     }
 
     public void setWaterInMl(int waterInMl) {
-        waterInMl = Math.min(waterInMl, this.capacityInMl);
-        waterInMl = Math.max(waterInMl, 0);
-
-        this.waterInMl = waterInMl;
+        this.waterInMl = Math.min(Math.max(waterInMl, 0), this.capacityInMl);
     }
 
     public void addWater(int waterInMl) {
