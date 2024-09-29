@@ -29,6 +29,7 @@ public class Program {
 
         DigitalClock digitalClock = new DigitalClock(8219);
         System.out.println(digitalClock);
+
         digitalClock.tick();
         System.out.println(digitalClock);
         System.out.println();
@@ -55,7 +56,14 @@ public class Program {
 
         digitalClock.setTime((byte) 15, (byte) 4, (byte) 39, false);
         System.out.println(digitalClock);
+
         digitalClock.setTime((byte) 15, (byte) 4, (byte) 39, true);
         System.out.println(digitalClock);
+        System.out.println();
+
+        digitalClock.setTime((byte) 12, (byte) 34, (byte) 56, false);
+        digitalClock.display();
+        digitalClock.setTime((byte) 7, (byte) 8, (byte) 9, true);
+        digitalClock.display();
     }
 }
