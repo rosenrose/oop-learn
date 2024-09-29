@@ -24,7 +24,7 @@ public class AnalogClock extends BaseClock {
     }
 
     public short getHourAngleInDegree() {
-        return (short) ((getHour() % 12 * ANGLE_PER_HOUR_IN_DEGREE) + (getMinute() * ANGLE_PER_HOUR_IN_DEGREE / 60));
+        return (short) ((getHour12() % 12 * ANGLE_PER_HOUR_IN_DEGREE) + (getMinute() * ANGLE_PER_HOUR_IN_DEGREE / 60));
     }
 
     public short getMinuteAngleInDegree() {
@@ -35,8 +35,7 @@ public class AnalogClock extends BaseClock {
         return (short) (getSecond() * ANGLE_PER_SEC_IN_DEGREE);
     }
 
-
     public String toString() {
-        return String.format("%02d:%02d:%02d", getHour(), getMinute(), getSecond());
+        return String.format("%02d:%02d:%02d", getHour12(), getMinute(), getSecond());
     }
 }

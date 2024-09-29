@@ -12,10 +12,14 @@ public class BaseClock {
         this.timeInSecond = timeInSecond;
     }
 
-    public byte getHour() {
+    public byte getHour12() {
         int hour = this.timeInSecond / 60 / 60 % 12;
 
         return (byte) (hour == 0 ? 12 : hour);
+    }
+
+    public byte getHour24() {
+        return (byte) (this.timeInSecond / 60 / 60 % 24);
     }
 
     public byte getMinute() {

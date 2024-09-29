@@ -44,5 +44,18 @@ public class Program {
         digitalClock.tick();
         System.out.println(digitalClock);
         System.out.println();
+
+        digitalClock.setHour((byte) 4);
+        System.out.println(digitalClock);
+        digitalClock.setHour((byte) 22);
+        System.out.println(digitalClock);
+        digitalClock.setIsAm(true);
+        System.out.println(digitalClock);
+        System.out.println();
+
+        digitalClock.setTime((byte) 15, (byte) 4, (byte) 39, false);
+        System.out.println(digitalClock);
+        digitalClock.setTime((byte) 15, (byte) 4, (byte) 39, true);
+        System.out.println(digitalClock);
     }
 }
