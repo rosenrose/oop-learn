@@ -18,7 +18,7 @@ public class DigitalClock extends BaseClock {
     public void setHour(byte hour) {
         hour = clamp(hour, (byte) 0, (byte) 23);
 
-        super.timeInSecond += (hour - getHour24()) * 60 * 60;
+        super.timeInSecond += (hour - getHour()) * 60 * 60;
     }
 
     public void setMinute(byte minute) {
@@ -49,7 +49,7 @@ public class DigitalClock extends BaseClock {
     }
 
     public SevenSegmentDisplay[] getHourDisplay() {
-        return convertToDisplay(getHour24());
+        return convertToDisplay(getHour());
     }
 
     public SevenSegmentDisplay[] getMinuteDisplay() {
@@ -125,6 +125,6 @@ public class DigitalClock extends BaseClock {
     }
 
     public String toString() {
-        return String.format("%s %02d:%02d:%02d", isAm() ? "AM" : "PM", getHour24(), getMinute(), getSecond());
+        return String.format("%s %02d:%02d:%02d", isAm() ? "AM" : "PM", getHour(), getMinute(), getSecond());
     }
 }
