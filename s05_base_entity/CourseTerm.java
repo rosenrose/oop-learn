@@ -2,13 +2,12 @@ package s05_base_entity;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class CourseTerm extends BaseEntity {
     private final int term;
     private final Course course;
-    private List<Student> students;
+    private ArrayList<Student> students;
 
     public CourseTerm(UUID id, OffsetDateTime createdDateTime, OffsetDateTime modifiedDateTime,
                       Course course, int term) {
@@ -26,11 +25,11 @@ public class CourseTerm extends BaseEntity {
         return this.course;
     }
 
-    public List<Student> getStudents() {
+    public ArrayList<Student> getStudents() {
         return this.students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
 

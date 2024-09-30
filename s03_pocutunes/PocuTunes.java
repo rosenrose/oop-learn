@@ -1,18 +1,17 @@
 package s03_pocutunes;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class PocuTunes {
-    private final List<Song> songs;
-    private final List<Playlist> playlists;
+    private final ArrayList<Song> songs;
+    private final ArrayList<Playlist> playlists;
 
     public PocuTunes() {
         this(new ArrayList<>(), new ArrayList<>());
     }
 
-    public PocuTunes(List<Song> songs, List<Playlist> playlists) {
+    public PocuTunes(ArrayList<Song> songs, ArrayList<Playlist> playlists) {
         this.songs = songs;
         this.playlists = playlists;
     }

@@ -1,11 +1,11 @@
 package s06_vector;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Vector {
     private final int x;
     private final int y;
-    public List<Boolean> hello;
+    public ArrayList<Boolean> hello;
 
     public Vector(int x, int y) {
         this.x = x;

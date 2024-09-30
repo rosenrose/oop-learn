@@ -1,21 +1,20 @@
 package s08_graphics;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Picture extends Graphic {
-    private List<Graphic> graphics;
+    private ArrayList<Graphic> graphics;
 
     public Picture(String label) {
         super(label);
         this.graphics = new ArrayList<>();
     }
 
-    public List<Graphic> getGraphics() {
+    public ArrayList<Graphic> getGraphics() {
         return this.graphics;
     }
 
-    public void setGraphics(List<Graphic> graphics) {
+    public void setGraphics(ArrayList<Graphic> graphics) {
         this.graphics = graphics;
     }
 

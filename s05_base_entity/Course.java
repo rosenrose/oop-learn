@@ -3,13 +3,12 @@ package s05_base_entity;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class Course extends BaseEntity {
     private final String courseCode;
     private String title;
-    private List<CourseTerm> courseTerms;
+    private ArrayList<CourseTerm> courseTerms;
 
     public Course(UUID id, OffsetDateTime createdDateTime, OffsetDateTime modifiedDateTime,
                   String courseCode, String title) {
@@ -31,11 +30,11 @@ public class Course extends BaseEntity {
         this.title = title;
     }
 
-    public List<CourseTerm> getCourseTerms() {
+    public ArrayList<CourseTerm> getCourseTerms() {
         return this.courseTerms;
     }
 
-    public void setCourseTerms(List<CourseTerm> courseTerms) {
+    public void setCourseTerms(ArrayList<CourseTerm> courseTerms) {
         this.courseTerms = courseTerms;
     }
 
