@@ -26,10 +26,7 @@ public class StaticLogger {
             File configFile = new File(loggerConfigPath.toString());
             String outputFilename = "log.txt";
 
-            if (!configFile.exists()) {
-                throw new FileNotFoundException();
-            }
-            if (!configFile.isFile()) {
+            if (!configFile.exists() || !configFile.isFile()) {
                 throw new FileNotFoundException();
             }
 

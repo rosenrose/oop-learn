@@ -1,0 +1,3 @@
+Batman,Entity,Physics,Controllable
+Tree,Entity,Physics
+Vampire,Entity,Physics,Ai

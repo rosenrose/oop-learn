@@ -38,10 +38,7 @@ public class SingletonLogger {
             LogLevel logLevel = LogLevel.WARNING;
             String outputFilename = "log_singleton.txt";
 
-            if (!configFile.exists()) {
-                throw new FileNotFoundException();
-            }
-            if (!configFile.isFile()) {
+            if (!configFile.exists() || !configFile.isFile()) {
                 throw new FileNotFoundException();
             }
 
@@ -116,7 +113,7 @@ public class SingletonLogger {
 
     private static String getClassPath() {
         String root = System.getProperty("user.dir");
-        String packageName = StaticLogger.class.getPackageName();
+        String packageName = SingletonLogger.class.getPackageName();
 
         Path classPath = Paths.get(root, packageName.replace('.', '/'));
 
