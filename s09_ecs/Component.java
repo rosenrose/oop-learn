@@ -1,6 +1,5 @@
 package s09_ecs;
 
-public class Component {
-    public void update() {
-    }
+public abstract class Component {
+    public abstract void update();
 }

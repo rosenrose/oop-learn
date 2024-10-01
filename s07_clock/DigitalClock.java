@@ -124,6 +124,7 @@ public class DigitalClock extends BaseClock {
         }
     }
 
+    @Override
     public String toString() {
         return String.format("%s %02d:%02d:%02d", isAm() ? "AM" : "PM", getHour(), getMinute(), getSecond());
     }

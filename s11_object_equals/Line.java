@@ -1,6 +1,6 @@
 package s11_object_equals;
 
-public class Line {
+public final class Line {
     private final Point p1;
     private final Point p2;
 

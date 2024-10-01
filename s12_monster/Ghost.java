@@ -9,6 +9,7 @@ public final class Ghost extends Monster {
         super(hp, attack, defense);
     }
 
+    @Override
     public int calculateDamage(Monster target) {
         return target.getAttack() - target.getDefense();
     }

@@ -9,6 +9,7 @@ public final class Ogre extends Monster {
         super(hp, attack, defense);
     }
 
+    @Override
     public int calculateDamage(Monster target) {
         return this.getAttack() + target.getAttack() - target.getDefense();
     }

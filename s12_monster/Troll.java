@@ -9,6 +9,7 @@ public final class Troll extends Monster {
         super(hp, attack, defense);
     }
 
+    @Override
     public int calculateDamage(Monster target) {
         return this.getAttack() - target.getDefense() / 2;
     }

@@ -9,14 +9,17 @@ public final class WaterAttunement extends Attunement {
         super(magician);
     }
 
+    @Override
     public void onEntry() {
         System.out.println("Water!");
     }
 
+    @Override
     public void attack() {
         System.out.println("Water punch!");
     }
 
+    @Override
     public void useEliteSkill(OffsetDateTime lastEliteAttackUsedDateTime) {
         if (super.isBeforeCooldown(lastEliteAttackUsedDateTime, ELITE_SKILL_COOLDOWN_IN_SECOND)) {
             System.out.println("Not yet");
@@ -26,6 +29,7 @@ public final class WaterAttunement extends Attunement {
         System.out.println("Water storm!");
     }
 
+    @Override
     public void onDeath() {
         System.out.println("drown...");
     }

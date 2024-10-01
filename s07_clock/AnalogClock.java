@@ -13,6 +13,7 @@ public class AnalogClock extends BaseClock {
         super(timeInSecond);
     }
 
+    @Override
     public byte getHour() {
         int hour = super.getHour() % 12;
 
@@ -41,6 +42,7 @@ public class AnalogClock extends BaseClock {
         return (short) (getSecond() * ANGLE_PER_SEC_IN_DEGREE);
     }
 
+    @Override
     public String toString() {
         return String.format("%02d:%02d:%02d", getHour(), getMinute(), getSecond());
     }
