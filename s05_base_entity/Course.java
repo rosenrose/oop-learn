@@ -5,7 +5,7 @@ import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Course extends BaseEntity {
+public final class Course extends BaseEntity {
     private final String courseCode;
     private String title;
     private ArrayList<CourseTerm> courseTerms;

@@ -4,24 +4,20 @@ import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
-public class Attunement {
+public abstract class Attunement {
     protected Magician magician;
 
     public Attunement(final Magician magician) {
         this.magician = magician;
     }
 
-    public void onEntry() {
-    }
+    public abstract void onEntry();
 
-    public void attack() {
-    }
+    public abstract void attack();
 
-    public void useEliteSkill(OffsetDateTime lastEliteAttackUsedDateTime) {
-    }
+    public abstract void useEliteSkill(OffsetDateTime lastEliteAttackUsedDateTime);
 
-    public void onDeath() {
-    }
+    public abstract void onDeath();
 
     protected boolean isBeforeCooldown(OffsetDateTime lastEliteAttackUsedDateTime, int eliteSkillCooldownInSecond) {
         final OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);

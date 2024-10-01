@@ -3,7 +3,7 @@ package s05_base_entity;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class Student extends BaseEntity {
+public final class Student extends BaseEntity {
     private final String name;
     private final String email;
     private String nickname;

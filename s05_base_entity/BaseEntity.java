@@ -3,7 +3,7 @@ package s05_base_entity;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class BaseEntity {
+public abstract class BaseEntity {
     private final UUID id;
     private final OffsetDateTime createdDateTime;
     private OffsetDateTime modifiedDateTime;

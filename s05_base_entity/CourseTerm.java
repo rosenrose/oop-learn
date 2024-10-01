@@ -4,7 +4,7 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class CourseTerm extends BaseEntity {
+public final class CourseTerm extends BaseEntity {
     private final int term;
     private final Course course;
     private ArrayList<Student> students;
