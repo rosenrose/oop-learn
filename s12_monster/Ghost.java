@@ -2,7 +2,7 @@ package s12_monster;
 
 public final class Ghost extends Monster {
     public Ghost() {
-        this(10, 3, 2);
+        super(10, 3, 2);
     }
 
     public Ghost(int hp, int attack, int defense) {

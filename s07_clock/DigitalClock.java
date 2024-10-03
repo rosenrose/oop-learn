@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class DigitalClock extends BaseClock {
     public DigitalClock() {
-        this(0);
+        super();
     }
 
     public DigitalClock(int timeInSecond) {

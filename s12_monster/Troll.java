@@ -2,7 +2,7 @@ package s12_monster;
 
 public final class Troll extends Monster {
     public Troll() {
-        this(100, 10, 10);
+        super(100, 10, 10);
     }
 
     public Troll(int hp, int attack, int defense) {

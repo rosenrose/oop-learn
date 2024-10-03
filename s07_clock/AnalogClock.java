@@ -6,7 +6,7 @@ public class AnalogClock extends BaseClock {
     static final int ANGLE_PER_SEC_IN_DEGREE = 360 / 60;
 
     public AnalogClock() {
-        this(0);
+        super();
     }
 
     public AnalogClock(int timeInSecond) {
