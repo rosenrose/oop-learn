@@ -1,6 +1,6 @@
 package s14_copy_constructor;
 
-public final class Point {
+public final class Point implements Cloneable {
     private int x;
     private int y;
 
@@ -37,5 +37,10 @@ public final class Point {
     @Override
     public String toString() {
         return String.format("(%d,%d)", this.x, this.y);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

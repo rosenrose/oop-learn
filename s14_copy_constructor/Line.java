@@ -1,8 +1,8 @@
 package s14_copy_constructor;
 
-public final class Line {
-    private final Point p1;
-    private final Point p2;
+public final class Line implements Cloneable {
+    private Point p1;
+    private Point p2;
 
     public Line(Point p1, Point p2) {
         this.p1 = p1;
@@ -16,5 +16,14 @@ public final class Line {
     @Override
     public String toString() {
         return String.format("[%s-%s]", this.p1, this.p2);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Line cloned = (Line) super.clone();
+        cloned.p1 = (Point) this.p1.clone();
+        cloned.p2 = (Point) this.p1.clone();
+
+        return cloned;
     }
 }
