@@ -10,17 +10,23 @@ public class WaterSpray {
     }
 
     public WaterSpray(SprayAmount sprayAmount, BottleSize bottleSize) {
-        this.head = switch (sprayAmount) {
-            case SMALL -> new SprayHead(1);
-            case MEDIUM -> new SprayHead(5);
-            case LARGE -> new SprayHead(50);
-        };
+        switch (sprayAmount) {
+            case SMALL -> this.head = new SprayHead(1);
+            case MEDIUM -> this.head = new SprayHead(5);
+            case LARGE -> this.head = new SprayHead(50);
+            default -> {
+                assert (false) : "Unknown size: " + sprayAmount;
+            }
+        }
 
-        this.body = switch (bottleSize) {
-            case SMALL -> new SprayBody(100);
-            case MEDIUM -> new SprayBody(500);
-            case LARGE -> new SprayBody(1000);
-        };
+        switch (bottleSize) {
+            case SMALL -> this.body = new SprayBody(100);
+            case MEDIUM -> this.body = new SprayBody(500);
+            case LARGE -> this.body = new SprayBody(1000);
+            default -> {
+                assert (false) : "Unknown size: " + bottleSize;
+            }
+        }
     }
 
     public SprayHead getHead() {
